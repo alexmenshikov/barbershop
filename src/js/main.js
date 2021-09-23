@@ -11,4 +11,9 @@ $(document).ready(() => {
 	$(".menu__item__link").click(() => {
 		$(".menu").removeClass("menu__mobile");
 	});
+
+	$(".parallax-window").parallax({
+		naturalWidth: 1920,
+		imageSrc: "images/bg-instagram.jpg",
+	});
 });

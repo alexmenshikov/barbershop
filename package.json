@@ -27,6 +27,7 @@
 		"gulp-htmlmin": "^5.0.1",
 		"gulp-jsmin": "^0.1.5",
 		"gulp-sass": "^5.0.0",
+		"jquery-parallax.js": "^1.5.0",
 		"node-sass": "^6.0.1",
 		"sass": "^1.41.0"
 	}
