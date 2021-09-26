@@ -12,7 +12,7 @@ const jsmin = require("gulp-jsmin");
 sass.compiler = require("node-sass");
 
 function styles() {
-	return src("./src/sass/main.scss")
+	return src("./css/main.scss")
 		.pipe(sass())
 		.pipe(concatCss("main.css"))
 		.pipe(cssmin())
@@ -41,7 +41,7 @@ function js() {
 }
 
 function watching() {
-	watch("./src/sass/*.scss", styles);
+	watch("./css/*.scss", styles);
 	// watch("./src/*.html", html);
 	watch("./src/js/main.js", js);
 }
