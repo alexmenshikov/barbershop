@@ -176,6 +176,7 @@ body {
 
 	// .parallax__btn
 	&__btn {
+		cursor: pointer;
 		margin-right: 180px;
 	}
 }
@@ -820,5 +821,47 @@ body {
 	// .btn:hover
 	&:hover {
 		box-shadow: 0 0 18.75px 6.25px $color-shadow;
+	}
+}
+
+// modal window popap discount
+.popap-discount {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: $color-bg-menu;
+	z-index: 5;
+
+	// .popap-discount__content
+	&__content {
+		background-image: url("../images/bg-popap.jpg");
+		background-position: center;
+		background-size: cover;
+		color: $color-white;
+		font-family: "lora-bold", serif;
+		font-size: 18px;
+		padding: 45px 25px;
+		max-width: 500px;
+		line-height: 1.2;
+		text-align: center;
+		position: relative;
+		margin-left: 15px;
+		margin-right: 15px;
+
+		// .popap-discount__content span
+		span {
+			color: $color-brown;
+		}
+	}
+
+	// .popap-discount__close
+	&__close {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		cursor: pointer;
 	}
 }

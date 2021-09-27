@@ -13,6 +13,20 @@ $(document).ready(() => {
 		menu.removeClass("menu__mobile");
 	});
 
+	// === popap discount ===
+	$("#discount").click(() => {
+		$(".popap-discount").css("display", "flex");
+	});
+
+	$(".popap-discount__cancel__close, .popap-discount").click((e) => {
+		if (
+			e.target.className === "popap-discount" ||
+			e.target.className === "popap-discount__cancel__close"
+		) {
+			$(".popap-discount").css("display", "none");
+		}
+	});
+
 	// ==============
 	$(".masters__slider").slick({
 		// показывать 3 слайда
