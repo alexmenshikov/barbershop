@@ -11,3 +11,8 @@ a {
 button {
 	border-style: none;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+	transition: background-color 90000000s 0s, color 90000000s 0s;
+}

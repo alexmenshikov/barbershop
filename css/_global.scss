@@ -1,6 +1,7 @@
 html,
 body {
 	height: 100%;
+	scroll-behavior: smooth;
 }
 
 .wrapper {
@@ -298,6 +299,7 @@ body {
 	// .masters__wrapper
 	&__wrapper {
 		border-right: 1px solid #ae8959;
+		position: relative;
 	}
 
 	// .masters__text
@@ -841,7 +843,7 @@ body {
 		background-position: center;
 		background-size: cover;
 		color: $color-white;
-		font-family: "lora-bold", serif;
+		font-family: "lora-regular", serif;
 		font-size: 18px;
 		padding: 45px 25px;
 		max-width: 500px;
@@ -864,4 +866,128 @@ body {
 		right: 15px;
 		cursor: pointer;
 	}
+}
+
+// modal window popap request
+.popap-request {
+	display: none;
+	z-index: 4;
+	margin: 0 auto 0 -502px;
+	width: 1004px;
+	background-image: url("../images/bg-popap.jpg");
+	padding: 55px 20px;
+	position: absolute;
+	box-sizing: border-box;
+	top: 210px;
+	left: 50%;
+
+	.submit-form {
+		// display: none;
+	}
+
+	.sent-form {
+		display: none;
+		padding-bottom: 180px;
+	}
+
+	// .popap-request__text
+	&__text {
+		font-family: "lora-regular", serif;
+		font-size: 25px;
+		color: rgb(255, 255, 255);
+		line-height: 1.2;
+		text-align: center;
+		max-width: 300px;
+		margin: 0 auto 60px auto;
+	}
+
+	&__subtext {
+		font-family: "muller-regular", sans-serif;
+		font-size: 18px;
+		color: $color-white;
+		line-height: 1.389;
+		text-align: center;
+		margin: 80px auto 0 auto;
+		max-width: 380px;
+	}
+
+	// .popap-request__input
+	&__input {
+		border: 1px solid $color-brown;
+		background-color: transparent;
+		width: 225px;
+		height: 45px;
+		font-family: "muller-regular", sans-serif;
+		font-size: 16px;
+		color: $color-white;
+		padding: 13px;
+		box-sizing: border-box;
+		outline: none;
+		// transition: border 0.5s ease;
+
+		// .popap-request__input::placeholder
+		&::placeholder {
+			font-family: "muller-regular", sans-serif;
+			font-size: 16px;
+			color: $color-white;
+		}
+	}
+
+	// .popap-request__select
+	&__select {
+		border: 1px solid $color-brown;
+		background-color: transparent;
+		width: 225px;
+		height: 45px;
+		font-family: "muller-regular", sans-serif;
+		font-size: 16px;
+		color: $color-white;
+		padding: 13px;
+		box-sizing: border-box;
+		outline: none;
+		// убираем стрелку
+		appearance: none;
+		// вставляем нужную
+		background: url("../images/select.png") no-repeat center right 15px;
+		// transition: border 0.5s ease;
+	}
+
+	// .popap-request__data
+	&__data {
+		display: grid;
+		grid-template-columns: repeat(3, 225px);
+		grid-template-rows: repeat(2, 45px);
+		grid-column-gap: 67px;
+		grid-row-gap: 40px;
+		justify-content: center;
+		margin-bottom: 60px;
+	}
+
+	// .popap-request__btn
+	&__btn {
+		margin: 0 auto;
+	}
+
+	// .popap-request__close
+	&__close {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		cursor: pointer;
+	}
+}
+
+.wrapper-input,
+.wrapper-select {
+	position: relative;
+}
+
+.error-message {
+	display: none;
+	font-family: "muller-regular", sans-serif;
+	font-size: 12px;
+	color: $color-error;
+	position: absolute;
+	left: 0;
+	top: 48px;
 }
