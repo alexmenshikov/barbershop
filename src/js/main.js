@@ -257,119 +257,41 @@ $(document).ready(() => {
 		],
 	});
 
-	// var imgs = $(".masters__slider img");
-	// imgs.each(function () {
-	// 	var item = $(this).closest(".item");
-	// 	item.css({
-	// 		"background-image": "url(" + $(this).attr("src") + ")",
-	// 		"background-position": "center",
-	// 		"-webkit-background-size": "cover",
-	// 		"background-size": "cover",
-	// 	});
-	// 	$(this).hide();
-	// });
 	// ==============
+	// === Яндекс карта ===
+	let map_center = [55.05487708843939, 82.90210826322935];
 
-	// Яндекс карта
-	// ymaps.ready(function () {
-	// 	var myMap = new ymaps.Map("map", {
-	// 		// Центр карты, указываем коордианты
-	// 		center: [55.02362, 82.925523],
-	// 		// Масштаб, тут все просто
-	// 		zoom: 9,
-	// 		// Отключаем все элементы управления
-	// 		controls: [],
-	// 	});
+	ymaps.ready(() => {
+		// Добавляем карту на страницу
+		let map = new ymaps.Map("contact__map", {
+			// Центр карты, указываем коордианты
+			center: map_center,
+			// Масштаб, тут все просто
+			zoom: 17,
+			// Отключаем все элементы управления
+			controls: [],
+		});
 
-	// 	var myGeoObjects = [];
+		// === Создаём свою метку на яндекс карте ===
+		let placemark = new ymaps.Placemark(
+			map_center,
+			{
+				// balloonContentBody: "Текст в балуне",
+			},
+			{
+				// Сообщаем карте, что хотим использовать свою картинку
+				iconLayout: "default#image",
+				// Путь до нашей картинки
+				iconImageHref: "../images/location.png",
+				// Размер по ширине и высоте
+				iconImageSize: [40, 50],
+				// Смещение левого верхнего угла иконки относительно
+				// её «ножки» (точки привязки).
+				iconImageOffset: [-20, -50],
+			}
+		);
 
-	// 	// Наша метка, указываем коордианты
-	// 	myGeoObjects = new ymaps.Placemark(
-	// 		[55.02362, 82.925523],
-	// 		{
-	// 			balloonContentBody: "Текст в балуне",
-	// 		},
-	// 		{
-	// 			iconLayout: "default#image",
-	// 			// Путь до нашей картинки
-	// 			iconImageHref: "../images/location.png",
-	// 			// Размер по ширине и высоте
-	// 			iconImageSize: [60, 60],
-	// 			// Смещение левого верхнего угла иконки относительно
-	// 			// её «ножки» (точки привязки).
-	// 			iconImageOffset: [-35, -35],
-	// 		}
-	// 	);
-
-	// 	var clusterer = new ymaps.Clusterer({
-	// 		clusterDisableClickZoom: false,
-	// 		clusterOpenBalloonOnClick: false,
-	// 	});
-
-	// 	clusterer.add(myGeoObjects);
-	// 	myMap.geoObjects.add(clusterer);
-	// 	// Отлючаем возможность изменения масштаба
-	// 	myMap.behaviors.disable("scrollZoom");
-	// });
-	// ymaps.ready(function () {
-	// 	var myMap = new ymaps.Map(
-	// 			"map",
-	// 			{
-	// 				center: [55.751574, 37.573856],
-	// 				zoom: 9,
-	// 			},
-	// 			{
-	// 				searchControlProvider: "yandex#search",
-	// 			}
-	// 		),
-	// 		// Создаём макет содержимого.
-	// 		MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-	// 			'<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
-	// 		),
-	// 		myPlacemark = new ymaps.Placemark(
-	// 			myMap.getCenter(),
-	// 			{
-	// 				hintContent: "Собственный значок метки",
-	// 				balloonContent: "Это красивая метка",
-	// 			},
-	// 			{
-	// 				// Опции.
-	// 				// Необходимо указать данный тип макета.
-	// 				iconLayout: "default#image",
-	// 				// Своё изображение иконки метки.
-	// 				iconImageHref: "../images/map-marker.png",
-	// 				// Размеры метки.
-	// 				iconImageSize: [30, 42],
-	// 				// Смещение левого верхнего угла иконки относительно
-	// 				// её "ножки" (точки привязки).
-	// 				iconImageOffset: [-5, -38],
-	// 			}
-	// 		),
-	// 		myPlacemarkWithContent = new ymaps.Placemark(
-	// 			[55.661574, 37.573856],
-	// 			{
-	// 				hintContent: "Собственный значок метки с контентом",
-	// 				balloonContent: "А эта — новогодняя",
-	// 				iconContent: "12",
-	// 			},
-	// 			{
-	// 				// Опции.
-	// 				// Необходимо указать данный тип макета.
-	// 				iconLayout: "default#imageWithContent",
-	// 				// Своё изображение иконки метки.
-	// 				iconImageHref: "images/ball.png",
-	// 				// Размеры метки.
-	// 				iconImageSize: [48, 48],
-	// 				// Смещение левого верхнего угла иконки относительно
-	// 				// её "ножки" (точки привязки).
-	// 				iconImageOffset: [-24, -24],
-	// 				// Смещение слоя с содержимым относительно слоя с картинкой.
-	// 				iconContentOffset: [15, 15],
-	// 				// Макет содержимого.
-	// 				iconContentLayout: MyIconContentLayout,
-	// 			}
-	// 		);
-
-	// 	myMap.geoObjects.add(myPlacemark).add(myPlacemarkWithContent);
-	// });
+		// === Добавляем свою метку на яндекс карте ===
+		map.geoObjects.add(placemark);
+	});
 });

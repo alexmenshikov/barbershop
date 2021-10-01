@@ -16,3 +16,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:focus {
 	transition: background-color 90000000s 0s, color 90000000s 0s;
 }
+
+[class*="copyrights-pane"] {
+	display: none !important;
+}
