@@ -166,24 +166,6 @@
 		margin-left: 50px;
 	}
 
-	.header {
-		// .header__content
-		&__content {
-			// .header__content__title
-
-			&__title {
-				font-size: 32px;
-				margin-bottom: 30px;
-			}
-
-			// .header__content__subtitle
-			&__subtitle {
-				font-size: 18px;
-				margin-bottom: 40px;
-			}
-		}
-	}
-
 	.advantage {
 		// .advantage__items
 		&__items {
@@ -285,6 +267,32 @@
 		width: 108px;
 	}
 
+	.header {
+		// .header__content
+		&__content {
+			// .header__content__title
+
+			&__title {
+				font-size: 32px;
+				margin-bottom: 30px;
+			}
+
+			// .header__content__subtitle
+			&__subtitle {
+				font-size: 18px;
+				margin-bottom: 40px;
+			}
+		}
+	}
+
+	.advantage {
+		&__item {
+			&__name {
+				font-size: 16px;
+			}
+		}
+	}
+
 	.menu {
 		// .menu__item
 		&__item {
@@ -363,16 +371,36 @@
 	.header {
 		// .header__content
 		&__content {
+			flex-direction: column;
+
+			// .header__content__info
+			&__info {
+				max-width: 320px;
+				text-align: center;
+				margin-top: 30px;
+			}
+
+			// .header__content__btn
+			&__btn {
+				margin: 0 auto;
+				margin-bottom: 30px;
+			}
+
+			// .header__content__image
+			&__image {
+				width: 200px;
+			}
+
 			// .header__content__title
 			&__title {
-				font-size: 26px;
-				margin-bottom: 25px;
+				//font-size: 26px;
+				//margin-bottom: 25px;
 			}
 
 			// .header__content__subtitle
 			&__subtitle {
-				font-size: 14px;
-				margin-bottom: 35px;
+				//font-size: 14px;
+				//margin-bottom: 35px;
 			}
 		}
 
@@ -579,6 +607,17 @@
 	}
 }
 
+@media screen and (max-width: 660px) {
+	.about {
+		&__info {
+			&__text{
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+	}
+}
+
 @media screen and (max-width: 639px) {
 	.header {
 		// .header__content
@@ -600,6 +639,7 @@
 	}
 
 	.masters {
+		padding-top: 50px;
 		&__slider {
 			.item.slick-slide {
 				height: 450px;
@@ -632,31 +672,6 @@
 
 	.about {
 		padding: 50px 0;
-	}
-
-	.header {
-		// .header__content
-		&__content {
-			flex-direction: column;
-
-			// .header__content__info
-			&__info {
-				max-width: 335px;
-				text-align: center;
-				margin-top: 30px;
-			}
-
-			// .header__content__btn
-			&__btn {
-				margin: 0 auto;
-				margin-bottom: 30px;
-			}
-
-			// .header__content__image
-			&__image {
-				width: 200px;
-			}
-		}
 	}
 
 	.parallax {
@@ -803,10 +818,11 @@
 	}
 
 	.phone {
-		order: 3;
-		text-align: center;
-		margin-top: 20px;
-		width: 100%;
+		display: none;
+		//order: 3;
+		//text-align: center;
+		//margin-top: 20px;
+		//width: 100%;
 	}
 
 	.burger {

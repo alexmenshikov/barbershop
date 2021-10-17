@@ -90,7 +90,7 @@ body {
 
 		// about__info__text
 		&__text {
-			width: 500px;
+			width: 495px;
 			font-family: "muller-regular", sans-serif;
 			font-size: 16px;
 			color: $color-white;
@@ -128,7 +128,7 @@ body {
 			vertical-align: middle;
 			text-align: center;
 			width: 30px;
-			height: 28px;
+			height: auto;
 		}
 
 		// about__suggestions__text
@@ -258,7 +258,7 @@ body {
 			font-family: "muller-regular", sans-serif;
 			font-size: 14px;
 			color: $color-subtitle;
-			line-height: 1.429;
+			line-height: 1.1;
 			margin-top: 10px;
 		}
 
@@ -284,7 +284,7 @@ body {
 
 		// .services__additional .services__basic:last-child
 		.services__basic:last-child {
-			margin-top: 60px;
+			margin-top: 44px;
 		}
 	}
 }
@@ -591,8 +591,8 @@ body {
 .burger {
 	display: none;
 	align-items: center;
-	width: 45px;
-	height: 35px;
+	width: 30px;
+	height: 23px;
 	position: relative;
 	cursor: pointer;
 	outline: none;
@@ -600,7 +600,7 @@ body {
 	// .burger span
 	span {
 		width: 100%;
-		height: 4px;
+		height: 2px;
 		background-color: $color-white;
 	}
 
@@ -619,10 +619,10 @@ body {
 	display: none;
 	align-items: center;
 	justify-content: center;
-	width: 45px;
-	height: 45px;
-	top: 49px;
-	right: 15px;
+	width: 23px;
+	height: 23px;
+	top: 60px;
+	right: 18px;
 	position: fixed;
 	z-index: 6;
 	outline: none;
@@ -631,7 +631,7 @@ body {
 	// .close span
 	span {
 		width: 100%;
-		height: 4px;
+		height: 2px;
 		background-color: $color-white;
 	}
 
@@ -710,6 +710,7 @@ body {
 			top: 0;
 			right: -10px;
 			z-index: 0;
+			opacity: 0.7;
 		}
 
 		// header__content::after
@@ -722,6 +723,7 @@ body {
 			bottom: 0;
 			left: 80px;
 			z-index: 0;
+			opacity: 0.7;
 		}
 
 		// .header__content__btn

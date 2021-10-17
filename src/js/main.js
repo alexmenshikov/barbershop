@@ -1,17 +1,21 @@
 $(document).ready(() => {
 	// === mobile menu ===
 	let menu = $(".menu");
+	let body = $("body");
 
 	$(".burger").click(() => {
 		menu.addClass("menu__mobile");
+		body.css('overflow','hidden');
 	});
 
 	$(".close").click(() => {
 		menu.removeClass("menu__mobile");
+		body.css('overflow','unset');
 	});
 
 	$(".menu__item__link").click(() => {
 		menu.removeClass("menu__mobile");
+		body.css('overflow','unset');
 	});
 
 	// === popap discount ===
@@ -59,104 +63,130 @@ $(document).ready(() => {
 		let status = [];
 
 		let name = $("#name");
+		let flag_name = false;
 		let name_message = $("#name-message");
 		name.css("border-color", "rgb(174, 137, 89)");
 		name_message.hide();
 
 		let service = $("#service");
+		let flag_service = false;
 		let service_message = $("#service-message");
 		service.css("border-color", "rgb(174, 137, 89)");
 		service_message.hide();
 
 		let date = $("#datepicker");
+		let flag_date = false;
 		let date_message = $("#date-message");
 		date.css("border-color", "rgb(174, 137, 89)");
 		date_message.hide();
 
 		let phone = $("#phone");
+		let flag_phone = false;
 		let phone_message = $("#phone-message");
 		phone.css("border-color", "rgb(174, 137, 89)");
 		phone_message.hide();
 
 		let master = $("#master");
+		let flag_master = false;
 		let master_message = $("#master-message");
 		master.css("border-color", "rgb(174, 137, 89)");
 		master_message.hide();
 
 		let time = $("#time");
+		let flag_time = false;
 		let time_message = $("#time-message");
 		time.css("border-color", "rgb(174, 137, 89)");
 		time_message.hide();
 
-		if (
-			name.val() &&
-			service.val() &&
-			date.val() &&
-			phone.val() &&
-			master.val() &&
-			time.val()
-		) {
-			$.ajax({
-				type: "post",
-				url: "mail.php",
-				data:
-					"name=" +
-					name.val() +
-					"&service=" +
-					service.val() +
-					"&date=" +
-					date.val() +
-					"&phone=" +
-					phone.val() +
-					"&master=" +
-					master.val() +
-					"&time=" +
-					time.val(),
-				success: () => {
-					$(".sent-form").show();
-					$(".submit-form").hide();
-				},
-				error: () => {
-					// $(".reservation__container").hide();
-					alert("Ошибка записи. Свяжитесь пожалуйста, по номеру телефона.");
-				},
-			});
+		// проверка имени
+		if (!name.val()) {
+			name.css("border-color", "rgb(231, 38, 38)");
+			name_message.show();
+			flag_name = false;
 		} else {
-			// проверка имени
-			if (!name.val()) {
-				name.css("border-color", "rgb(231, 38, 38)");
-				name_message.show();
-			}
+			flag_name = true;
+		}
 
-			// проверка услуг
-			if (!service.val()) {
-				service.css("border-color", "rgb(231, 38, 38)");
-				service_message.show();
-			}
+		// проверка услуг
+		if (!service.val()) {
+			service.css("border-color", "rgb(231, 38, 38)");
+			service_message.show();
+			flag_service = false;
+		} else {
+			flag_service = true;
+		}
 
-			// проверка даты
-			if (!date.val()) {
-				date.css("border-color", "rgb(231, 38, 38)");
-				date_message.show();
-			}
+		// проверка даты
+		if (!date.val()) {
+			date.css("border-color", "rgb(231, 38, 38)");
+			date_message.show();
+			flag_date = false;
+		} else {
+			flag_date = true;
+		}
 
-			// проверка телефона
-			if (!phone.val()) {
-				phone.css("border-color", "rgb(231, 38, 38)");
-				phone_message.show();
-			}
+		// проверка телефона
+		if (!phone.val()) {
+			phone.css("border-color", "rgb(231, 38, 38)");
+			phone_message.show();
+			flag_phone = false;
+		} else {
+			flag_phone = true;
+		}
 
-			// проверка мастера
-			if (!master.val()) {
-				master.css("border-color", "rgb(231, 38, 38)");
-				master_message.show();
-			}
+		// проверка мастера
+		if (!master.val()) {
+			master.css("border-color", "rgb(231, 38, 38)");
+			master_message.show();
+			flag_master = false;
+		} else {
+			flag_master = true;
+		}
 
-			// проверка времени
-			if (!time.val()) {
-				time.css("border-color", "rgb(231, 38, 38)");
-				time_message.show();
-			}
+		// проверка времени
+		if (!time.val()) {
+			time.css("border-color", "rgb(231, 38, 38)");
+			time_message.show();
+			flag_time = false;
+		} else {
+			flag_time = true;
+		}
+
+		if (
+			flag_name &&
+			flag_service &&
+			flag_date &&
+			flag_phone &&
+			flag_master &&
+			flag_time
+		) {
+			$(".sent-form").show();
+			$(".submit-form").hide();
+			// $.ajax({
+			// 	type: "post",
+			// 	url: "mail.php",
+			// 	data:
+			// 		"name=" +
+			// 		name.val() +
+			// 		"&service=" +
+			// 		service.val() +
+			// 		"&date=" +
+			// 		date.val() +
+			// 		"&phone=" +
+			// 		phone.val() +
+			// 		"&master=" +
+			// 		master.val() +
+			// 		"&time=" +
+			// 		time.val(),
+			// 	success: () => {
+			// 		$(".sent-form").show();
+			// 		$(".submit-form").hide();
+			// 	},
+			// 	error: () => {
+			// 		// $(".reservation__container").hide();
+			// 		alert("Ошибка записи. Свяжитесь пожалуйста, по номеру телефона.");
+			// 	},
+			// });
 		}
 	});
 
@@ -282,7 +312,7 @@ $(document).ready(() => {
 				// Сообщаем карте, что хотим использовать свою картинку
 				iconLayout: "default#image",
 				// Путь до нашей картинки
-				iconImageHref: "../images/location.png",
+				iconImageHref: "../barbershop/images/location.png",
 				// Размер по ширине и высоте
 				iconImageSize: [40, 50],
 				// Смещение левого верхнего угла иконки относительно
